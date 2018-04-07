@@ -1,21 +1,19 @@
-# About This Repo #
-This is a skeleton of an Ansible home directory. You can control all of your application environments from this directory. If you work with multiple customers, you probably want to create a separate copy of this repo for each customer.
+#-------------------------------
+# ansible examples:
+#-------------------------------
+https://github.com/ansible/ansible-examples
 
-This repo was designed to help new Ansible users to get up and running quickly. Feel free to add to it and add additional tips and tricks. Pull requests welcome.
-
-# Ansible Tips #
-In your roles directory, type ansible-galaxy init <em>role_name</em> in order to generate an empty skeleton for a new role you are working on.
-
-Example:
-<pre>
+#-------------------------------
+# to generate an empty skeleton for a new role:
+#-------------------------------
+cd roles 
 ansible-galaxy init nginx
-</pre>
 
-Check out [Ansible Examples](https://github.com/ansible/ansible-examples) for example playbooks.
-
+#-------------------------------
 # Best Practices Directory Layout #
-
-Based on [Ansible Best Practices](https://docs.ansible.com/ansible/playbooks_best_practices.html#directory-layout)
+#-------------------------------
+based on [Ansible Best Practices]:
+https://docs.ansible.com/ansible/playbooks_best_practices.html#directory-layout
 
 <pre>
 production                # inventory file for production servers
@@ -57,4 +55,5 @@ roles/
     monitoring/           # ""
     fooapp/               # ""
 </pre>
+
 
