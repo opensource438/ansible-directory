@@ -6,15 +6,22 @@
   remote_user: root
   gather_facts: no
 
+
+# ---------------------------
+# pre_taksks
+# ---------------------------
   pre_tasks:
-#   - set_fact:
-#       weblogic_domain: nsm202
 
-#    - include: roles/sanity_check/tasks/main.yml
+  # - set_fact:
+  #   weblogic_domain: nsm202
+  #  - include: roles/sanity_check/tasks/main.yml
 
-     - include_role:
-         name: sanity_check
+  - include_role:
+      name: sanity_check
 
+  # ---------------------------
+  # use roles
+  # ---------------------------
   roles:
 
     - weblogic_stop
@@ -34,27 +41,34 @@
     # - test
 
 
-# -----------------------
-# use block
-# -----------------------
-
+  # -----------------------
+  # use block
+  # -----------------------
   tasks:
-  - debug:
-       msg: "testing block ......."
-
   - block:
     - include_role:
         name: deploy_md
+
+    - include_role:
         name: sanity_check
 
-    - fail:
-       msg: "deploy failed"
+    # --------------------------------
+    # enable the following to test fail,
+    # so that to run the rescue
+    # - fail:
+    #    msg: "deploy failed"
+    # --------------------------------
 
     rescue:
       - include_role:
           name: rollback
      #     tasks_from: failure
 
+
+
+# ----------------------------
+# post_tasks is always run at the end.
+# ----------------------------
 
   post_tasks:
     - include: roles/flashback_restore_point_remove/tasks/main.yml 
