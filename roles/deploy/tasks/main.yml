@@ -2,7 +2,11 @@
 # tasks file for deploy
 
 
-- hosts: all
+- hosts: lab2  
+
+  pre-tasks:
+    - set_fact:
+        weblogic_domain: nsm202 
 
   roles:
     - sanity_check 

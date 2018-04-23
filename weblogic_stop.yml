@@ -1,0 +1,11 @@
+
+
+
+- hosts: localhost 
+  user: root
+
+  roles:
+    - weblogic_stop 
+
+
+

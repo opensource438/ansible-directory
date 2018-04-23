@@ -1,0 +1,12 @@
+    
+- name: check and kill weblogic process in a specific domain
+  hosts: localhost
+  tasks:
+  
+      - shell: " pgrep -f {{ weblogic_domain }} "
+        register: result
+ 
+      - shell: " pkill -9 -f {{ weblogic_domain }}   "
+#        remote_user: "{{ weblogic }}"
+        when : result.rc == 0
+
