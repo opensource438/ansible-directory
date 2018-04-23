@@ -11,11 +11,14 @@
 # pre_taksks
 # ---------------------------
   pre_tasks:
+  
 
   # - set_fact:
   #   weblogic_domain: nsm202
   #  - include: roles/sanity_check/tasks/main.yml
-
+ 
+#  - include_vars: {{env}}.yml
+  
   - include_role:
       name: sanity_check
 
