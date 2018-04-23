@@ -69,9 +69,7 @@
 # ----------------------------
 # post_tasks is always run at the end.
 # ----------------------------
-
   post_tasks:
-    - include: roles/flashback_restore_point_remove/tasks/main.yml 
     - include_role:
          name: sanity_check
 
