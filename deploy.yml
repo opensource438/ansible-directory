@@ -1,0 +1,70 @@
+---
+# tasks file for deploy
+
+
+- hosts: localhost  
+  remote_user: root
+  gather_facts: no
+
+  pre_tasks:
+#   - set_fact:
+#       weblogic_domain: nsm202
+
+#    - include: roles/sanity_check/tasks/main.yml
+
+     - include_role:
+         name: sanity_check
+
+  roles:
+
+    - weblogic_stop
+    - flashback_restore_point_create
+
+    - deploy_md
+
+      # dependencies:
+      # Role dependencies are stored in the meta/main.yml of role directory, 
+      # it contains a list of roles and parameters to insert before the specified role, 
+      # - { role: aa }
+      # - { role: bb }
+
+    - weblogic_restart 
+
+    - sanity_check
+    # - test
+
+
+# -----------------------
+# use block
+# -----------------------
+
+  tasks:
+  - debug:
+       msg: "testing block ......."
+
+  - block:
+    - include_role:
+        name: deploy_md
+        name: sanity_check
+
+    - fail:
+       msg: "deploy failed"
+
+    rescue:
+      - include_role:
+          name: rollback
+     #     tasks_from: failure
+
+
+  post_tasks:
+    - include: roles/flashback_restore_point_remove/tasks/main.yml 
+    - include_role:
+         name: sanity_check
+
+
+# -----------------------
+# how to use :
+# -----------------------
+# ap  -vvv  weblogic_stop.yml  -e  weblogic_domain=<nsm202>
+
+     

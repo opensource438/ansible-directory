@@ -1,15 +1,6 @@
 ---
-# tasks file for deploy
+# tasks file for deploy md
 
-
-- hosts: all
-
-  roles:
-    - sanity_check 
-    - weblogic_stop 
-    - flashback_restore_point_create
-    - deploy_md
-    - weblogic_restart 
-    - sanity_check
-    - test 
+- name: deploy md in progress
+  shell: "echo 'deploy md in progress'"
      

@@ -1,2 +1,6 @@
----
-# tasks file for create_flashback_restore_point
+
+
+
+- name: flashback resotre point remove  
+  shell: " echo 'flashback resotre point : name : removed ' "
+

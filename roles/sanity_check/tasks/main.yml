@@ -2,5 +2,18 @@
 
 
 - name: sanity check 
-  shell: " curl -I  google.com | grep 301 "
+  # check connection (GET) to a page and it returns a status 200
+  uri:
+    url: http://www.google.com
+
+
+
+# -----------------------
+# more example :
+# http://docs.ansible.com/ansible/latest/modules/uri_module.html
+# -----------------------
+
+# for downloading files
+#   get_url: google.com 
+#  shell: " curl -I  google.com | grep 301 "
 
