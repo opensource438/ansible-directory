@@ -5,10 +5,10 @@
   user: root
 
   roles:
-    - weblogic_stop 
+    - sanity_check 
 
 # -----------------------
 # how to use :
 # -----------------------
-# ap  -vvv  weblogic_stop.yml  -e  weblogic_domain=<nsm202>
+# ap  -vvv  sanity_check.yml  -e  weblogic_domain=<nsm202>
 

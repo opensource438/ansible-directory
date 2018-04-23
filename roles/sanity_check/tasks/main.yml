@@ -1,2 +1,6 @@
----
-# tasks file for sanity_check
+
+
+
+- name: sanity check 
+  shell: " curl -I  google.com | grep 301 "
+
