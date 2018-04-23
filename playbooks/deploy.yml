@@ -45,6 +45,8 @@
   # use block
   # -----------------------
   tasks:
+  - debug : msg="running block ..."
+
   - block:
     - include_role:
         name: deploy_md
