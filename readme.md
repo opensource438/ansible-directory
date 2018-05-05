@@ -57,3 +57,12 @@ roles/
 </pre>
 
 
+#-------------------------------
+# how to use : 
+#-------------------------------
+cd ansible_nsm/playbooks 
+ap deploy.yml
+
+
+
+
