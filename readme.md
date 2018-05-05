@@ -64,5 +64,3 @@ cd ansible_nsm/playbooks
 ap deploy.yml
 
 
-
-
