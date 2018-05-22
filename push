@@ -1,0 +1,31 @@
+#!/bin/bash 
+
+print_log()
+{
+  t=$(date +%Y-%m-%d_time_%H:%M:%S)
+  echo "-------------------------------------------------------"
+  echo -ne "$t - ""$1 \n"
+  echo "-------------------------------------------------------"
+}
+
+push()
+{
+  msg="$@"
+
+  [ -z "$msg" ] && \
+  msg="OMG, commit message is empty … are you kidding me… are you kidding me" && \
+  print_log "$msg"
+
+  git add  --all
+  git commit -am "$msg"
+
+  print_log "pushing to git repo : in progress …"
+
+  git push -u origin master
+
+  print_log "pushing to git repo : done"
+
+}
+
+ push "$@"
+
