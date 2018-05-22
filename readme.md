@@ -16,19 +16,22 @@ based on [Ansible Best Practices]:
 https://docs.ansible.com/ansible/playbooks_best_practices.html#directory-layout
 
 <pre>
-production                # inventory file for production servers
+prod                      # inventory file for production servers
 staging                   # inventory file for staging environment
 
-group_vars/
+vars_group/
    group1                 # here we assign variables to particular groups
    group2                 # ""
-host_vars/
+
+vars_host/
    hostname1              # if systems need specific variables, put them here
    hostname2              # ""
 
 library/                  # if any custom modules, put them here (optional)
 filter_plugins/           # if any custom filter plugins, put them here (optional)
 
+
+playbooks/
 site.yml                  # master playbook
 webservers.yml            # playbook for webserver tier
 dbservers.yml             # playbook for dbserver tier
@@ -58,9 +61,8 @@ roles/
 
 
 #-------------------------------
-# how to use : 
+# run playbook  : 
 #-------------------------------
-cd ansible_nsm/playbooks 
-ap deploy.yml
+ap playbooks/deploy.yml
 
 
